@@ -28,7 +28,7 @@ module.exports = (app) => {
                 </head>
             
                 <body>    
-                    <h1>Listagem de livros</h1>
+                    <h1>Listagem de livros - Casa do código</h1>
                 </body>
             </html>`
         );
