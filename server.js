@@ -4,39 +4,7 @@ app.listen(3000, function() {
     console.log(`Servidor rodando na porta 3000`)
 })
 
-app.get('/', function(req, resp){
-    resp.send(
-        `<!DOCTYPE html>
-            <html lang="pt-br">
-                <head>
-                    <title>Casa do Código</title>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width"> 
-                </head>
-            
-                <body>    
-                    <h1>Olá mundo!</h1>
-                </body>
-            </html>`
-    );
-});
-
-app.get('/livros', function(req, resp){
-    resp.send(
-        `<!DOCTYPE html>
-        <html lang="pt-br">
-            <head>
-                <title>Casa do Código</title>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width"> 
-            </head>
-        
-            <body>    
-                <h1>Listagem de livros</h1>
-            </body>
-        </html>`
-    );
-});
+// Using module HTTP
 
 const http = require('http');
 
