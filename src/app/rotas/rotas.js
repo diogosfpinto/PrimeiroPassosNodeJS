@@ -18,19 +18,8 @@ module.exports = (app) => {
     });
     
     app.get('/livros', function(req, resp){
-        resp.send(
-            `<!DOCTYPE html>
-            <html lang="pt-br">
-                <head>
-                    <title>Casa do Código</title>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width"> 
-                </head>
-            
-                <body>    
-                    <h1>Listagem de livros - Casa do código</h1>
-                </body>
-            </html>`
+        resp.marko(
+            require('../views/livros/lista/lista.marko')
         );
     });
 }
