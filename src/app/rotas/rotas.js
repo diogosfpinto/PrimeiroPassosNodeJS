@@ -23,15 +23,14 @@ module.exports = (app) => {
     app.get('/livros', function(req, resp){
 
         const livroDao = new LivroDao(db);
-        //consulta de listagem no banco de dados
-        livroDao.lista(function(erro, resultados){
-
-            resp.marko(
-                require('../views/livros/lista/lista.marko'),
-                {
-                    livros: resultados
-                }
-            );
-        });
+        //consulta de listagem no banco de dados com promises pois é uma função assincrona 
+        livroDao.lista()
+                .then(livros => resp.marko(
+                    require('../views/livros/lista/lista.marko'),
+                    {
+                        livros: livros
+                    }
+                ))
+                .catch(erro => console.log(erro));
     });
 }
