@@ -1,3 +1,4 @@
+const LivroDao = require('../infra/livro-dao');
 const db = require('../../config/database');
 
 //exportando uma função que recebe um parâmetro.
@@ -20,9 +21,10 @@ module.exports = (app) => {
     });
     
     app.get('/livros', function(req, resp){
-        
+
+        const livroDao = new LivroDao(db);
         //consulta de listagem no banco de dados
-        db.all('SELECT * FROM livros', function(erro, resultados){
+        livroDao.lista(function(erro, resultados){
 
             resp.marko(
                 require('../views/livros/lista/lista.marko'),
@@ -31,6 +33,5 @@ module.exports = (app) => {
                 }
             );
         });
-
     });
 }
