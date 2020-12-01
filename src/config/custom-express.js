@@ -14,6 +14,15 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+//Adicionando middleware para contagem de tempo para executar uma rota
+app.use('*', function(req, res, next){
+    const inicio = new Date().getTime();
+    next();
+    const termino = new Date().getTime();
+
+    const milissegundosDecorridos = termino - inicio;
+})
+
 module.exports = app;
 
 const rotas = require('../app/rotas/rotas');
