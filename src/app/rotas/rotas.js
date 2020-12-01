@@ -34,12 +34,17 @@ module.exports = (app) => {
                 .catch(erro => console.log(erro));
     });
 
+    //Acessando a página de formulário para adicionar um item
     app.get('/livros/form', function(req, resp){
         resp.marko(require('../views/livros/form/form.marko'))
     });
 
-    //rota utilizando post
+    //rota utilizando post para enviar ao servidor os dados da adição de um novo item
     app.post('/livros', function(req, resp){
-        console.log(req.body);
+        
+        const livroDao = new LivroDao(db);
+        livroDao.adiciona(req.body)
+                .then(resp.redirect('/livros'))
+                .catch(erro => console.log(erro));
     });
 }
