@@ -7,6 +7,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
+//Requisições para um objeto javascript estático será redirecionado para o caminho abaixo
+app.use('/estatico', express.static('src/app/public'));
+
 //Setando um middleware para o express
 //Criado para receber dados do formulário adição de livros
 //Permite o envio de dados no estilo Json
