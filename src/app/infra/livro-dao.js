@@ -4,7 +4,7 @@ class LivroDao {
         this._db = db;
     }
 
-    buscarPorId(id) {
+    buscaPorId(id) {
         return new Promise((resolve, reject) => {
             this._db.get(
                 'SELECT * FROM livros WHERE id = ?',
